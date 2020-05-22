@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Todolist</h2>
+
+  <input type="text" #input (keyup.enter)="addTodo(input.value)" />
+  <button class="sortBtn" (click)="sortTodo()">Sortera A - Ö</button>
+  <h3>DETTA SKA DU GÖRA IDAG:</h3>
+  <app-print-todo
+    class="todos"
+    [class]="todo.isDone ? done : notdone"
+    *ngFor="let todo of todos"
+    (delete)="deleteTodo(todo)"
+    [todo]="todo"
+  >
+  </app-print-todo>
+</div>
